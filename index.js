@@ -1,11 +1,5 @@
 const productarea = document.querySelector(".content-phone-container");
-let item1 = document.getElementById("categorie-item-add");
-let item2 = document.getElementById("item2");
-let item3 = document.getElementById("item3");
-let item4=document.getElementById('item4')
-let item5=document.getElementById('item5')
-let item6=document.getElementById('item6')
-let item7=document.getElementById('item7')
+
 let categories = document.querySelector(".categories-active");
 let brand = document.querySelector(".brand-active");
 let price = document.querySelector(".price-active");
@@ -18,119 +12,36 @@ let cancel = document.querySelectorAll(".categories-h2-icon");
 let sort = document.querySelector(".sort");
 let sortbtn = document.querySelector(".content-sort");
 let sortcancel = document.querySelector(".sort-icon");
-let cateapply = document.getElementById("cateapply");
-let check1 = document.getElementById("cb-android");
-let sortlp = document.getElementById("sortlp");
-let check2 = document.getElementById("cb-iphone");
-let check3 = document.getElementById("cb-smart");
-let check4 = document.getElementById("cb-band");
+
 let categoriebox=document.querySelector('.categories-active')
 let brandbox=document.querySelector('.brand-active')
-let brandcheck1=document.getElementById('cb-apple')
-let brandcheck2=document.getElementById('cb-noise')
-let brandcheck3=document.getElementById('cb-vivo')
-let brandcheck4=document.getElementById('boat')
 let brandapply=document.getElementById('brandapply')
 let pricebox=document.querySelector(".price-active")
-let pricecheck1=document.getElementById("cb-greater10")
-let pricecheck2=document.getElementById("cb-greater20")
-let pricecheck3=document.getElementById("cb-greater30")
-let pricecheck4=document.getElementById("cb-greater40")
+
 let processorapply=document.getElementById('processorapply')
 let ramapply=document.getElementById('ramapply')
 let internalapply=document.getElementById('internalapply')
 let delivaryapply=document.getElementById('delivaryapply')
-let ramcheck1=document.getElementById('cb-ram1')
-let ramcheck2=document.getElementById('cb-ram2')
-let ramcheck3=document.getElementById('cb-ram3')
-let ramcheck4=document.getElementById('cb-ram4')
-let internalcheck1=document.getElementById('cb-internal1')
-let internalcheck2=document.getElementById('cb-internal2')
-let internalcheck3=document.getElementById('cb-internal3')
-let internalcheck4=document.getElementById('cb-internal4')
-let delivarycheck1=document.getElementById('cb-home')
-let delivarycheck2=document.getElementById('cb-express')
-// button
-let filteritems=document.querySelector('.filter-items')
-let filteritemsbrand=document.querySelector('.filter-items-brand')
-let filteritemsprice=document.querySelector('.filter-items-price')
-let filteritemsprocessor=document.querySelector('.filter-items-processor')
-let filteritemsram=document.querySelector('.filter-items-ram')
-let filteritemsinternal=document.querySelector('.filter-items-internal')
-let filteritemsdelivary=document.querySelector('.filter-items-delivary')
-let valueicon=document.querySelector('.value-icon')
-let valueiconbrand=document.querySelector('.value-icon-brand')
-let valueiconprice=document.querySelector('.value-icon-price')
-let valueiconprocessor=document.querySelector('.value-icon-processor')
-let valueiconram=document.querySelector('.value-icon-ram')
-let valueiconinternal=document.querySelector('.value-icon-internal')
-let valueicondelivary=document.querySelector('.value-icon-delivary')
-let valuetext=document.querySelector('.value-text')
-let valuetextbrand=document.querySelector('.value-text-brand')
-let valuetextprice=document.querySelector('.value-text-price')
-let valuetextprocessor=document.querySelector('.value-text-processor')
-let valuetextram=document.querySelector('.value-text-ram')
-let valuetextinternal=document.querySelector('.value-text-internal')
-let valuetextdelivary=document.querySelector('.value-text-delivary')
 // clear
 let clear=document.querySelector('.content-clear-text')
+const cateapply = document.getElementById("cateapply")
+let active=document.querySelectorAll('.categories-apply')
 
 
-
-item1.addEventListener("click", () => {
-  categories.classList.add("active");
-});
-item2.addEventListener("click", () => {
-  brand.classList.add("active");
-});
-item3.addEventListener("click", () => {
-  price.classList.add("active");
-});
-item4.addEventListener('click',()=>{
-  processor.classList.add('active')
-})
-item5.addEventListener('click',()=>{
-  ram.classList.add('active')
-})
-item6.addEventListener('click',()=>{
-  internal.classList.add("active")
-})
-item7.addEventListener('click',()=>{
-  delivary.classList.add("active")
-})
-
-cancel.forEach((cancels) => {
-  cancels.addEventListener("click", () => {
-    categories.classList.remove("active");
-    brand.classList.remove("active");
-    price.classList.remove("active");
-    processor.classList.remove("active")
-    ram.classList.remove("active")
-    internal.classList.remove('active')
-    delivary.classList.remove('active')
-  });
-});
-
-let alldata = [];
-
+let alldata = []
+  
 async function productfetch() {
-  try {
-    const response = await fetch("./product.json");
-    let data = await response.json();
-
-    alldata = data;
-    getdata(alldata);
-  } catch (error) {
-    console.log(error);
-  }
+  let response=await fetch('./product.json') 
+  let data=await response.json()
+  alldata=data
+  getdata(alldata)
 }
-productfetch();
+productfetch()
 
-
- function getdata(datas) {
-  datas.forEach((product) => {
-    productarea.innerHTML += `
-<li class="content-phone-container-items">
+function getdata(datas){
+  productarea.innerHTML=""
+  datas.forEach((product)=>{
+    productarea.innerHTML+=`<li class="content-phone-container-items">
                                     <div class="cpci-item">
                                         <div class="cpci-item-image">
                                             <img src="${product.image}"
@@ -231,11 +142,52 @@ productfetch();
                                         </div>
                                     </div>  
                                 </li>`;
-  });
+  })
 }
 
+// button section
 
+// item1.addEventListener("click", () => {
+//   categories.classList.add("active");
+// });
+// item2.addEventListener("click", () => {
+//   brand.classList.add("active");
+// });
+// item3.addEventListener("click", () => {
+//   price.classList.add("active");
+// });
+// item4.addEventListener('click',()=>{
+//   processor.classList.add('active')
+// })
+// item5.addEventListener('click',()=>{
+//   ram.classList.add('active')
+// })
+// item6.addEventListener('click',()=>{
+//   internal.classList.add("active")
+// })
+// item7.addEventListener('click',()=>{
+//   delivary.classList.add("active")
+// })
 
+// cancel.forEach((cancels) => {
+//   cancels.addEventListener("click", () => {
+//     categories.classList.remove("active");
+//     brand.classList.remove("active");
+//     price.classList.remove("active");
+//     processor.classList.remove("active")
+//     ram.classList.remove("active")
+//     internal.classList.remove('active')
+//     delivary.classList.remove('active')
+//   }); 
+// });
+
+document.querySelectorAll('.content-categories-items').forEach(x=>{
+ x.addEventListener('click',()=>{
+  x.classList.remove('active')
+ })
+})
+
+// sort section //
 sortlp.addEventListener("click", () => {
   productarea.innerHTML = "";
   const priceproduct = alldata.sort((a, b) => a.priced - b.priced);
@@ -262,249 +214,95 @@ sorttop.addEventListener("click", () => {
   getdata(toprated);
   closingsort();
 });
-
 sortbtn.addEventListener("click", () => {
   sort.classList.add("active");
 });
-
 function closingsort() {
   sort.classList.remove("active");
 }
 sortcancel.addEventListener("click", closingsort);
 
+// filters
 
-function short(){
-  clear.style.display="none"
-  productarea.innerHTML=""
-  getdata(alldata)
+let filters={
+  category: [],
+  brand: [],
+  price: [],
+  processor:[],
+  ram: [],
+  internal: [],
+  delivary: [],
 }
 
-
-function categoriesclose(){
-  categoriebox.classList.remove("active")
-}
-valueicon.addEventListener('click',()=>{
-  filteritems.style.display="none"
-  short()
-})
-cateapply.addEventListener("click", () => {
-  productarea.innerHTML = "";
-  if (check1.checked) {
-    let androidchecked = alldata.filter(
-      (element) => element["processorName"] === "android"
-    );
-    getdata(androidchecked);
-    closingsort();
-  } else if (check2.checked) {
-    let iphonecheck = alldata.filter((x) => x["processorName"] === "ios");
-    getdata(iphonecheck);
-    
-  } else if (check3.checked) {
-    let smartwatch = alldata.filter((x) => {
-      return x["item"] === "watch";
-    });
-    getdata(smartwatch);
-  } else if (check4.checked) {
-    let allphone = alldata.filter((x) => {
-      return x["item"] === "phone";
-    });
-    getdata(allphone);
+function allfilters(){
+let result=alldata
+  if(filters.category.length>0){
+    result=result.filter((x)=>
+    filters.category.includes(x.itemtype)||
+    filters.category.includes(x.item))
   }
-  categoriesclose()     
-  filteritems.style.display="block" 
-  clear.style.display="block"
-  if(check1.checked){ 
-    valuetext.textContent="android"
-                
-  }else if(check2.checked){
-    valuetext.textContent="i phone"
-  }else if(check3.checked){
-    valuetext.textContent="Smart watch"
-  }else if(check4.checked){
-    valuetext.textContent="all phones"  
+  if(filters.brand.length>0){
+    result=result.filter((x)=> 
+    filters.brand.includes(x.brand))
   }
-});       
-
-
-
-function brandclose(){
-  brandbox.classList.remove("active")
-}
-valueiconbrand.addEventListener('click',()=>{
-  productarea.innerHTML=""
-  filteritemsbrand.style.display="none"
-  short()
-})
-brandapply.addEventListener('click',()=>{
-  productarea.innerHTML=""
-  let checkedbrand=document.querySelector("input[name='brand']:checked");
-  let filtereddata
-  
-  if(checkedbrand){
-    let branddata=checkedbrand.value
-    filtereddata=alldata.filter((x)=> x["brand"]==branddata)
-    valuetext.innerHTML=branddata
+  if(filters.ram.length>0){
+    result=result.filter((x)=>
+    filters.ram.includes(x.ram))
   }
- 
-  getdata(filtereddata)
-  filteritemsbrand.style.display="block"
-  brandclose()
-})
-
-
-
-function priceclose(){
-  pricebox.classList.remove("active")
-}
-valueiconprice.addEventListener('click',()=>{
-  filteritemsprice.style.display="none"
-  short()
-})
-priceapply.addEventListener("click",()=>{
-  productarea.innerHTML=""
-  if(pricecheck4.checked){
-    let below80=alldata.filter((x)=>{
-      return  x.priced>=40000 && x.priced <=80000
+  if(filters.processor.length>0){
+    result=result.filter((x)=>
+    filters.processor.includes(x.processorName))
+  }
+  if(filters.internal.length>0){
+    result=result.filter((x)=>
+    filters.internal.includes(x.internal))
+  }
+  if(filters.delivary.length>0){
+    result=result.filter((x)=>
+    filters.delivary.includes(x.delivary))
+  }
+  if(filters.price.length>0){
+    result=result.filter((x)=>{
+     return filters.price.some(Range=>{
+      let [min,max]=Range.split("-")
+      return x.price>=min&&x.price<=max
     })
-    getdata(below80)
-  }else if(pricecheck3.checked){
-    let below40=alldata.filter((x)=> {
-      return x.priced>=30000 && x.priced<=40000
     })
-    getdata(below40)
-  }else if(pricecheck2.checked){
-    let below30=alldata.filter((x)=> x.priced>=20000 && x.priced<=30000)
-    getdata(below30)
-  }else if(pricecheck1.checked){
-    let below20=alldata.filter((x)=> x.priced<=20000);
-    getdata(below20)
   }
-  priceclose();
-  filteritemsprice.style.display="block"
-  clear.style.display="block"
-  if(pricecheck1.checked){
-    valuetextprice.innerHTML="0-20,000"
-  }else if(pricecheck2.checked){
-    valuetextprice.innerHTML="20,001-30,000"
-  }else if(pricecheck3.checked){
-    valuetextprice.innerHTML="30,001-40,000"
-  }else{
-    valuetextprice.innerHTML="40,001-80,000"
-  }
-});
+  getdata(result)
+  console.log(result)
+}   
 
-  
+document.querySelectorAll('input[type=checkbox]').forEach((checkbox)=>{
+  checkbox.addEventListener('click',()=>{
+    let filtertype=checkbox.name
+    if(checkbox.checked){
+      filters[filtertype].push(checkbox.value)
+    }else{
+      filters[filtertype]=filters[filtertype].filter((x)=> x!==checkbox.value)
+    }
+  })
+})
 
-function processorclose(){
-  processor.classList.remove('active')
-}
-processorapply.addEventListener('click',()=>{
-  processorclose()
+document.querySelectorAll('.categories-apply').forEach(x=>{
+  x.addEventListener('click',()=>{
+    allfilters()
+  })
+})
+
+document.querySelectorAll('.content-categories-items').forEach(x=>{
+  x.addEventListener('click',()=>{
+    let targetclass=x.dataset.target
+    let target=document.querySelector(`.${targetclass}`)
+    if(target){
+      target.classList.add('active')
+    }
+  })
+})
+
+document.querySelectorAll('.categories-h2-icon').forEach(cancelbtn=>{
+  cancelbtn.addEventListener('click',()=>{
+    document.querySelectorAll(".categories-active,.brand-active,.price-active,.processor-active,.ram-active,.internal-active,.delivary-active")
+    .forEach(p=> p.classList.remove('active'))
+  })
 }) 
-
-
-function ramclose(){
-  ram.classList.remove('active')
-}
-valueiconram.addEventListener('click',()=>{
-  filteritemsram.style.display="none"
-  short()
-})
-ramapply.addEventListener('click',()=>{
-  productarea.innerHTML=""
-  if(ramcheck1.checked){
-    let gb4=alldata.filter((x)=> x.ram=="4")
-    getdata(gb4)
-  }else if(ramcheck2.checked){
-    let gb6=alldata.filter((x)=>{
-      return x.ram=="6"
-    })
-    getdata(gb6)
-  }
-  ramclose()
-  filteritemsram.style.display="block"
-  clear.style.display="block"
-  if(ramcheck1.checked){
-    valuetextram.innerHTML="4 GB-RAM"
-  }else{
-    valueiconram.innerHTML="6 GB-RAM"
-  }
-})
-
-
-
-function internalclose(){
-  internal.classList.remove('active')
-}
-valueiconinternal.addEventListener('click',()=>{
-  filteritemsinternal.style.display="none"
-  short()
-})
-internalapply.addEventListener('click',()=>{
-  productarea.innerHTML=""
-  if(internalcheck1.checked){
-    let gb64=alldata.filter((x)=> x.internal==64)
-    getdata(gb64)
-  }else if(internalcheck2){
-    let gb128=alldata.filter((x) => x.internal==128)
-    getdata(gb128)
-  }
-  internalclose()
-  filteritemsinternal.style.display="block"
-  clear.style.display="block"
-  if(internalcheck1.checked){
-    valuetextinternal.innerHTML="64 GB"
-  }else{
-    valuetextinternal.innerHTML="128 GB"
-  }
-})
-
-
-
-function delivaryclose(){
-  delivary.classList.remove('active')
-}
-valueicondelivary.addEventListener('click',()=>{
-  filteritemsdelivary.style.display="none"
-  short()
-})
-delivaryapply.addEventListener('click',()=>{
-  productarea.innerHTML=""
-  if(delivarycheck1.checked){
-    let home=alldata.filter((x)=> x["delivery"]=="cash on delivery")
-    getdata(home)
-  }else if(delivarycheck2.checked){
-    let express=alldata.filter((x)=> x["delivery"]=="express delivery")
-    getdata(express)
-  }
-  delivaryclose()
-  filteritemsdelivary.style.display="block"
-  clear.style.display="block"
-  if(delivarycheck1.checked){
-    valuetextdelivary.innerHTML="Home Delivary"
-  }else {
-    valuetextdelivary.innerHTML="Express Delivary"
-  }
-})
-
-      
-
-clear.addEventListener('click',()=>{
-  categoriesclose()
-  brandclose()
-  priceclose()
-  processorclose()
-  ramclose()  
-  internalclose()
-  delivaryclose()
-  filteritems.style.display="none"
-  filteritemsbrand.style.display="none"
-  filteritemsprice.style.display="none"
-  filteritemsprocessor.style.display="none"
-  filteritemsram.style.display="none"
-  filteritemsinternal.style.display="none"
-  filteritemsdelivary.style.display="none"
-  short()
-})
-
-

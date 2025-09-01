@@ -167,8 +167,8 @@
                             </div>
                         </div>
                         <div class="content-categories">
-                            <div class="content-categories-items">
-                                <div class="categorie-item" id="categorie-item-add">
+                            <div class="content-categories-items" id="item1" data-target="categories-active" >
+                                <div class="categorie-item">
                                     <div class="categorie-item-text">Categories</div>
                                     <div class="content-arrow">
                                         <span><svg width="8" height="6" viewBox="0 0 8 6" fill="none">
@@ -179,7 +179,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-categories-items" id="item2">
+                            <div class="content-categories-items" id="item2" data-target="brand-active">
                                 <div class="categorie-item">
                                     <p class="categorie-item-text">Brand</p>
                                     <div class="content-arrow">
@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-categories-items" id="item3">
+                            <div class="content-categories-items" id="item3" data-target="price-active">
                                 <div class="categorie-item">
                                     <p class="categorie-item-text">Price</p>
                                     <div class="content-arrow">
@@ -203,7 +203,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-categories-items" id="item4">
+                            <div class="content-categories-items" id="item4" data-target="processor-active">
                                 <div class="categorie-item">
                                     <p class="categorie-item-text">Processor Name</p>
                                     <div class="content-arrow">
@@ -215,7 +215,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-categories-items" id="item5">
+                            <div class="content-categories-items" id="item5" data-target="ram-active">
                                 <div class="categorie-item">
                                     <p class="categorie-item-text">RAM(GB)</p>
                                     <div class="content-arrow">
@@ -227,7 +227,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-categories-items" id="item6">
+                            <div class="content-categories-items" id="item6" data-target="internal-active">
                                 <div class="categorie-item">
                                     <p class="categorie-item-text">Internal Storage (GB)</p>
                                     <div class="content-arrow">
@@ -239,7 +239,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-categories-items" id="item7">
+                            <div class="content-categories-items" id="item7" data-target="delivary-active">
                                 <div class="categorie-item">
                                     <p class="categorie-item-text">Delivary Mode</p>
                                     <div class="content-arrow">
@@ -250,7 +250,7 @@
                                             </svg></span>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                         <div class="content-gap">
                             <ul class="content-filter-items">
@@ -580,7 +580,7 @@
 
         </footer>
     </div>
-    <div class="categories-active ">
+    <div class="categories-active">
         <h2 class="categories-h2">
             <span class="categories-h2-text">Categories</span>
             <span class="categories-h2-icon"></span>
@@ -590,7 +590,7 @@
         <ul class="categories-filter-product">
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3434" id="cb-android">
+                    <input class="checkbox-check" type="checkbox" name="category" value="android" id="cb-android">
                     <label class="checkbox-text" for="cb-android">
                         <span class="check-item"></span>
                         <span class="check-text">ANDROID PHONE</span>
@@ -600,7 +600,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3434" id="cb-smart">
+                    <input class="checkbox-check" type="checkbox" name="category" value="smart" id="cb-smart">
                     <label class="checkbox-text" for="cb-smart">
                         <span class="check-item"></span>
                         <span class="check-text">SMART WATCHS</span>
@@ -610,7 +610,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3434" id="cb-iphone">
+                    <input class="checkbox-check" type="checkbox" name="category" value="iphone" id="cb-iphone">
                     <label class="checkbox-text" for="cb-iphone">
                         <span class="check-item"></span>
                         <span class="check-text">I PHONE</span>
@@ -620,7 +620,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3434" id="cb-band">
+                    <input class="checkbox-check" type="checkbox" name="category" value="phone" id="cb-band">
                     <label class="checkbox-text" for="cb-band">
                         <span class="check-item"></span>
                         <span class="check-text">Phone</span>
@@ -650,16 +650,6 @@
         <div class="categories-line"></div>
         <p class="categories-filter">
         <ul class="categories-filter-product">
-            <!-- <li class="filter-product-item">
-                <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3535">
-                    <label  class="checkbox-text" for="checkbox-check">
-                        <span class="check-item"></span>
-                        <span class="check-text">APPLE</span>
-
-                    </label>   
-                </div>
-            </li> -->
             <li class="filter-product-item">
                 <div class="filter-checkbox">
                     <input class="checkbox-check" type="checkbox" value="apple" id="cb-apple" name="brand">
@@ -707,7 +697,7 @@
                     Clear
                 </span>
             </div>
-            <div class="categories-apply" id="brandapply">
+            <div class="categories-apply" id="cateapply">
                 <span class="categories-apply-text">Apply</span>
             </div>
         </div>
@@ -723,7 +713,7 @@
         <ul class="categories-filter-product">
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3636" id="cb-greater10">
+                    <input class="checkbox-check" type="checkbox" name="price" id="cb-greater10" value="0-20000">
                     <label class="checkbox-text" for="cb-greater10">
                         <span class="check-item"></span>
                         <span class="check-text">0-20,000</span>
@@ -733,7 +723,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3636" id="cb-greater20">
+                    <input class="checkbox-check" type="checkbox" name="price" id="cb-greater20" value="20001-30000">
                     <label class="checkbox-text" for="cb-greater20">
                         <span class="check-item"></span>
                         <span class="check-text">20,001-30,000</span>
@@ -743,7 +733,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3636" id="cb-greater30">
+                    <input class="checkbox-check" type="checkbox" name="price" id="cb-greater30" value="30001-40000">
                     <label class="checkbox-text" for="cb-greater30">
                         <span class="check-item"></span>
                         <span class="check-text">30,001-40,000</span>
@@ -753,7 +743,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3636" id="cb-greater40">
+                    <input class="checkbox-check" type="checkbox" name="price" id="cb-greater40" value="40001-80000">
                     <label class="checkbox-text" for="cb-greater40">
                         <span class="check-item"></span>
                         <span class="check-text">40,001-80,000</span>
@@ -769,7 +759,7 @@
                     Clear
                 </span>
             </div>
-            <div class="categories-apply" id="price-apply">
+            <div class="categories-apply" id="cateapply">
                 <span class="categories-apply-text">Apply</span>
             </div>
         </div>
@@ -785,18 +775,19 @@
         <ul class="categories-filter-product">
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3737" id="cb-android">
-                    <label class="checkbox-text" for="cb-android">
+                    <input class="checkbox-check" type="checkbox" name="processor" id="cb-a18" value="a18">
+                    <label class="checkbox-text" for="cb-a18">
                         <span class="check-item"></span>
-                        <span class="check-text">A 18</span>
+                        <span class="check-text">A18</span>
 
                     </label>
                 </div>
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3737" id="cb-smart">
-                    <label class="checkbox-text" for="cb-smart">
+                    <input class="checkbox-check" type="checkbox" name="processor" id="cb-snapdragon"
+                        value="snapdragon">
+                    <label class="checkbox-text" for="cb-snapdragon">
                         <span class="check-item"></span>
                         <span class="check-text">SNAPDRAGON</span>
 
@@ -805,8 +796,8 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3737" id="cb-iphone">
-                    <label class="checkbox-text" for="cb-iphone">
+                    <input class="checkbox-check" type="checkbox" name="processor" id="cb-helio" value="helio">
+                    <label class="checkbox-text" for="cb-helio">
                         <span class="check-item"></span>
                         <span class="check-text">HELIO</span>
 
@@ -815,8 +806,8 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3737" id="cb-band">
-                    <label class="checkbox-text" for="cb-band">
+                    <input class="checkbox-check" type="checkbox" name="processor" id="cb-dimensity" value="dimensity">
+                    <label class="checkbox-text" for="cb-dimensity">
                         <span class="check-item"></span>
                         <span class="check-text">DIMENSITY</span>
 
@@ -831,7 +822,7 @@
                     Clear
                 </span>
             </div>
-            <div class="categories-apply" id="processorapply">
+            <div class="categories-apply" id="cateapply">
                 <span class="categories-apply-text">Apply</span>
             </div>
         </div>
@@ -847,7 +838,7 @@
         <ul class="categories-filter-product">
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3838" id="cb-ram1">
+                    <input class="checkbox-check" type="checkbox" name="ram" id="cb-ram1" value="4">
                     <label class="checkbox-text" for="cb-ram1">
                         <span class="check-item"></span>
                         <span class="check-text">4GB</span>
@@ -857,7 +848,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3838" id="cb-ram2">
+                    <input class="checkbox-check" type="checkbox" name="ram" id="cb-ram2" value="6">
                     <label class="checkbox-text" for="cb-ram2">
                         <span class="check-item"></span>
                         <span class="check-text">6GB</span>
@@ -867,7 +858,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3838" id="cb-ram3">
+                    <input class="checkbox-check" type="checkbox" name="ram" id="cb-ram3" value="8">
                     <label class="checkbox-text" for="cb-ram3">
                         <span class="check-item"></span>
                         <span class="check-text">8GB</span>
@@ -877,7 +868,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3838" id="cb-ram4">
+                    <input class="checkbox-check" type="checkbox" name="ram" id="cb-ram4" value="16">
                     <label class="checkbox-text" for="cb-ram4">
                         <span class="check-item"></span>
                         <span class="check-text">16GB</span>
@@ -893,7 +884,7 @@
                     Clear
                 </span>
             </div>
-            <div class="categories-apply" id="ramapply">
+            <div class="categories-apply" id="cateapply">
                 <span class="categories-apply-text">Apply</span>
             </div>
         </div>
@@ -909,7 +900,7 @@
         <ul class="categories-filter-product">
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3939" id="cb-internal1">
+                    <input class="checkbox-check" type="checkbox" name="internal" id="cb-internal1" value="64">
                     <label class="checkbox-text" for="cb-internal1">
                         <span class="check-item"></span>
                         <span class="check-text">64GB</span>
@@ -919,7 +910,7 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3939" id="cb-internal2">
+                    <input class="checkbox-check" type="checkbox" name="internal" id="cb-internal2" value="128">
                     <label class="checkbox-text" for="cb-internal2">
                         <span class="check-item"></span>
                         <span class="check-text">128GB</span>
@@ -929,17 +920,17 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="3939" id="cb-internal3">
+                    <input class="checkbox-check" type="checkbox" name="internal" id="cb-internal3" value="256">
                     <label class="checkbox-text" for="cb-internal3">
                         <span class="check-item"></span>
-                        <span class="check-text">32GB</span>
+                        <span class="check-text">256GB</span>
 
                     </label>
                 </div>
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox"  name="3939" id="cb-internal4">
+                    <input class="checkbox-check" type="checkbox" name="internal" id="cb-internal4" value="512">
                     <label class="checkbox-text" for="cb-internal4">
                         <span class="check-item"></span>
                         <span class="check-text">512GB</span>
@@ -955,7 +946,7 @@
                     Clear
                 </span>
             </div>
-            <div class="categories-apply" id="internalapply">
+            <div class="categories-apply" id="cateapply">
                 <span class="categories-apply-text">Apply</span>
             </div>
         </div>
@@ -971,7 +962,7 @@
         <ul class="categories-filter-product">
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="4040" id="cb-home">
+                    <input class="checkbox-check" type="checkbox" name="delivary" id="cb-home" value="home">
                     <label class="checkbox-text" for="cb-home">
                         <span class="check-item"></span>
                         <span class="check-text">HOME DELIVERY</span>
@@ -981,11 +972,10 @@
             </li>
             <li class="filter-product-item">
                 <div class="filter-checkbox">
-                    <input class="checkbox-check" type="checkbox" name="4040" id="cb-express">
+                    <input class="checkbox-check" type="checkbox" name="delivary" id="cb-express" value="express">
                     <label class="checkbox-text" for="cb-express">
                         <span class="check-item"></span>
                         <span class="check-text">EXPRESS DELIVERY</span>
-
                     </label>
                 </div>
             </li>
@@ -996,7 +986,7 @@
                     Clear
                 </span>
             </div>
-            <div class="categories-apply" id="delivaryapply">
+            <div class="categories-apply" id="cateapply">
                 <span class="categories-apply-text">Apply</span>
             </div>
         </div>
