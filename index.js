@@ -4,10 +4,10 @@ let sort = document.querySelector(".sort");
 let sortbtn = document.querySelector(".content-sort");
 let sortcancel = document.querySelector(".sort-icon");
 
-let cleardata=document.querySelector('.content-clear-text')
-let filterContainer=document.getElementById('selected-filters')
+let cleardata = document.querySelector(".content-clear-text");
+let filterContainer = document.getElementById("selected-filters");
 
-// json data fetch 
+// json data fetch
 let alldata = [];
 async function productfetch() {
   let response = await fetch("./product.json");
@@ -16,16 +16,15 @@ async function productfetch() {
   getdata(alldata);
 }
 productfetch();
-
-
+// hdfg
+// bdgdfj
 function getdata(datas) {
   productarea.innerHTML = "";
   datas.forEach((product) => {
     let li = document.createElement("li");
     li.classList.add("content-phone-container-items");
-
-    li.innerHTML+=`
-                                    <div class="cpci-item">
+    li.innerHTML += `
+                  <div class="cpci-item">
                                         <div class="cpci-item-image">
                                             <img src="${product.image}"
                                                 alt="iphone">
@@ -125,44 +124,41 @@ function getdata(datas) {
                                         </div>
                                     </div>  
                                  `;
-li.querySelector(".cpci-item").addEventListener("click", () => {
+    li.querySelector(".cpci-item").addEventListener("click", () => {
       window.location.href = `product.html?id=${product.id}`;
     });
     productarea.appendChild(li);
   });
 }
 
-sortbtn.addEventListener('click',()=>{
-  sort.classList.add('active');
-})
+sortbtn.addEventListener("click", () => {
+  sort.classList.add("active");
+});
 function closingsort() {
   sort.classList.remove("active");
 }
 sortcancel.addEventListener("click", closingsort);
 
+let currentSort = "";
 
-let currentSort="";
-
-
-// sorting input 
-document.querySelectorAll('.sort-list').forEach((x)=>{
-  x.addEventListener('click',()=>{
-    if(x.id=="sortlp"){
-      currentSort="price-low"
-    }else if(x.id=="sorthp"){
-      currentSort="price-high"
-    }else if(x.id=="sortd"){
-      currentSort="discount"
-    }else if(x.id=="sorttop"){
-      currentSort="rating"
+// sorting input uhjk
+document.querySelectorAll(".sort-list").forEach((x) => {
+  x.addEventListener("click", () => {
+    if (x.id == "sortlp") {
+      currentSort = "price-low";
+    } else if (x.id == "sorthp") {
+      currentSort = "price-high";
+    } else if (x.id == "sortd") {
+      currentSort = "discount";
+    } else if (x.id == "sorttop") {
+      currentSort = "rating";
     }
-    allfilters()
-    closingsort()
-  })
-})
+    allfilters();
+    closingsort();
+  });
+});
 
- 
-// pannel open    
+// pannel open
 document.querySelectorAll(".content-categories-items").forEach((x) => {
   x.addEventListener("click", () => {
     let click = x.dataset.target;
@@ -173,7 +169,8 @@ document.querySelectorAll(".content-categories-items").forEach((x) => {
   });
 });
 
-// pannel close 
+
+// pannel close
 document.querySelectorAll(".categories-h2-icon").forEach((x) => {
   x.addEventListener("click", () => {
     document
@@ -215,7 +212,7 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
   });
 });
 
-// data filtering 
+// data filtering
 function allfilters() {
   let result = alldata;
   if (filters.category.length > 0) {
@@ -232,8 +229,7 @@ function allfilters() {
     result = result.filter((x) => filters.ram.includes(x.ram));
   }
   if (filters.internal.length > 0) {
-    result = result.filter((x) => 
-      filters.internal.includes(x.internal));
+    result = result.filter((x) => filters.internal.includes(x.internal));
   }
   if (filters.processor.length > 0) {
     result = result.filter((x) => filters.processor.includes(x.processorName));
@@ -241,75 +237,85 @@ function allfilters() {
   if (filters.delivary.length > 0) {
     result = result.filter((x) => filters.delivary.includes(x.delivary));
   }
-  if (filters.price.length > 0) {
-    result = result.filter((x) =>
-      filters.price.some((range) => {
-        let [min, max] = range.split("-");
-        return x.price >= min && x.price <= max;
-      })
-    );
+if (filters.price.length > 0) {
+  result = result.filter((x) => {
+    return filters.price.some((range) => {
+      let [min, max] = range.split('-');
+      return x.priced >= min && x.priced < max;
+    });
+  });
+}
+
+
+  // sorting input 
+  if (currentSort == "price-low") {
+    result.sort((a, b) => a.priced - b.priced);
+  } else if (currentSort == "price-high") {
+    result.sort((a, b) => b.priced - a.priced);
+  } else if (currentSort == "discount") {
+    result.sort((a, b) => b.offerd - a.offerd);
+  } else if (currentSort == "rating") {
+    result.sort((a, b) => b.rating - a.rating);
   }
 
-// sorting input 
-if(currentSort=="price-low"){
-  result.sort((a,b)=> a.priced-b.priced)
-}else if(currentSort=="price-high"){
-  result.sort((a,b)=> b.priced-a.priced)
-}else if(currentSort=="discount"){
-  result.sort((a,b)=> b.offerd-a.offerd)
-}else if(currentSort=="rating"){
-  result.sort((a,b)=> b.rating-a.rating)
+  getdata(result);
+  console.log(result);
 }
 
-getdata(result)
-console.log(result)
-}
+// apply button
+document.querySelectorAll(".categories-apply").forEach((x) => {
+  x.addEventListener("click", () => {
+    filterContainer.innerHTML = "";
+    Object.keys(filters).forEach((type) => {
+      filters[type].forEach((value) => {
+        let tag = document.createElement("span");
+        tag.classList.add("filter-tag");
+        tag.setAttribute("data-value", value);
+        tag.innerHTML = value + `<button class="remove-btn">x</button>`;
+        filterContainer.appendChild(tag);
 
-// apply button  
-document.querySelectorAll('.categories-apply').forEach((x)=>{
-  x.addEventListener('click',()=>{
-    filterContainer.innerHTML=""
-    cleardata.style.display="block"
-    Object.keys(filters).forEach(type=>{
-      filters[type].forEach(value=>{
-        let tag=document.createElement('span')
-        tag.classList.add('filter-tag')
-        tag.setAttribute('data-value',value)
-        tag.innerHTML= value + `<button class="remove-btn">x</button>`
-        filterContainer.appendChild(tag)
-        
-        // tag closeing 
-        tag.querySelector('.remove-btn').addEventListener('click',()=>{
-          let checkbox=document.querySelector(`input[name="${type}"][value="${value}"]`)
-          if(checkbox) checkbox.checked=false
-          filters[type]=filters[type].filter((x)=> x!==value)
-          tag.remove()
-          allfilters()
-          clearbtn()
-        })        
-        })
-      })
-    allfilters()
-    clearbtn()
-    document.querySelectorAll('.categories-active,.brand-active,.price-active,.processor-active,.ram-active,.internal-active,.delivary-active').forEach((x)=> x.classList.remove('active'))
-  })
-})
+        // tag closeing
+        tag.querySelector(".remove-btn").addEventListener("click", () => {
+          let checkbox = document.querySelector(
+            `input[name="${type}"][value="${value}"]`
+          );
+          if (checkbox) checkbox.checked = false;
+          filters[type] = filters[type].filter((x) => x !== value);
+          tag.remove();
+          allfilters();
+          clearbtn();
+        });
+      });
+    });
+    allfilters();
+    clearbtn();
+    document
+      .querySelectorAll(
+        ".categories-active,.brand-active,.price-active,.processor-active,.ram-active,.internal-active,.delivary-active"
+      )
+      .forEach((x) => x.classList.remove("active"));
+  });
+});
+
 // clear button
-cleardata.addEventListener('click',()=>{
-  document.querySelectorAll('input[type=checkbox]').forEach((x)=> x.checked=false)
-  filterContainer.innerHTML=""
-  Object.keys(filters).forEach((type)=> filters[type]=[])
-  cleardata.style.display=""
-  allfilters()
-}) 
+cleardata.addEventListener("click", () => {
+  document
+    .querySelectorAll("input[type=checkbox]")
+    .forEach((x) => (x.checked = false));
+  filterContainer.innerHTML = "";
+  Object.keys(filters).forEach((type) => (filters[type] = []));
+  cleardata.style.display = "";
+  allfilters();
+});
 
-function clearbtn(){
-  let allclear=Object.keys(filters).every(x=> filters[x].length==0)
-  cleardata.style.display=allclear?"none":"block"
+function clearbtn() {
+  let allclear = Object.keys(filters).every((x) => filters[x].length == 0);
+  cleardata.style.display = allclear ? "none" : "block";
 }
 
-card.addEventListener('click',()=>{
-  window.location.href=`product.html?id=${product.id}`
-})
-document.getElementById('product').appendChild(card);
+card.addEventListener("click", () => {
+  window.location.href = `product.html?id=${product.id}`;
+});
+document.getElementById("product").appendChild(card);
+
 
